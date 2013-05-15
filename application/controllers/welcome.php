@@ -19,7 +19,41 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('welcome_message');
+		//$this->load->view('welcome_message');
+		$parm1  = array(
+		0 => 1 ,
+		1 => 2,
+		2 => 3 ,
+		3 => "2" ,
+		4 => "2" ,
+		5 => "2" ,
+		6 => 2  ,
+		7=> 2  ,
+		8 => "2" , 
+		);
+ 		
+		$this->load->model("subject_model");
+		
+		if($data = $this->subject_model->getByName(1))
+		{
+			var_dump($data);
+			$parm1  = array(
+				0 => $data[0] ,
+				1 => 2,
+				2 => 3 ,
+				3 => "2" ,
+				4 => "2" ,
+				5 => "2" ,
+				6 => 2  ,
+				7=> 2  ,
+				8 => "2" , 
+
+		);
+		}else{
+			echo " not found";
+			var_dump($data);
+		}
+		
 	}
 }
 
